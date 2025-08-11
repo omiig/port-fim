@@ -1,24 +1,29 @@
-const toggle = document.getElementById('theme-toggle');
-const body = document.body;
+const animacaoBarraHabilidade = () => {
+    const barraHabilidade = document.querySelectorAll('.progresso-habilidade');
+    
+    barraHabilidade.forEach(barra => {
+        const width = barra.getAttribute('data-width');
+        barra.setAttribute('width') = width;
+    });
+};  
 
-toggle.addEventListener('click', () => {
-  body.classList.toggle('light-mode');
-  toggle.textContent = body.classList.contains('light-mode') ? '🌞' : '🌙';
-});
-
-const revealElements = document.querySelectorAll('section');
-
-const revealOnScroll = () => {
-  const triggerBottom = window.innerHeight * 0.85;
-
-  revealElements.forEach((el) => {
-    const boxTop = el.getBoundingClientRect().top;
-    if (boxTop < triggerBottom) {
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    }
-  });
+// Observer para animações ao scroll
+const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px 0px -100px 0px'
 };
 
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            
+            // Animar barras de habilidade quando a seção skills ficar visível
+            if (entry.target.id === 'habilidades') {
+                setTimeout(() => {
+                    animacaoBarraHabilidade();
+                }, 300);
+            }
+        }
+    });
+}, observerOptions);

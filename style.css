@@ -161,6 +161,106 @@ body {
   text-align: justify;
 }
 
+
+/* Seção de habilidades */
+
+.habilidades-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.habilidade-card {
+  background-color: var(--bg-realce);
+  border: 1px solid var(--cor-borda);
+  width: 25%;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition:all 0.3s ease;
+  color: var(--texto-primario);
+}
+
+.habilidade-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.habilidade-card i {
+  font-size: 3rem;
+  color: var(--realce-azul);
+  margin-bottom: 1rem;
+}
+
+.habilidade-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--realce-azul);
+}
+
+.barra-habilidade {
+  background-color: var(--bg-realce);
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 1rem;
+  border-color: var(--cor-borda);
+  width: 100%;
+}
+
+.progresso-habilidade {
+  height: 100%;
+  background-color: var(--realce-azul);
+  border-radius: 5px;
+  border-color: var(--cor-borda);
+  transition: width 2s ease;
+  width: 0;
+}
+
+/* Seção de educação */
+
+.timeline {
+  position: relative;
+  padding: 20px 0;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.item-timeline {
+  padding: 20px;
+  background-color: var(--bg-realce);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.item-timeline:hover {
+  transform: scale(1.06);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item-timeline h3 {
+  font-size: 1.5rem;
+  color: var(--realce-azul);
+  margin-bottom: 10px;
+}
+
+.item-timeline p {
+  font-size: 1rem;
+  color: var(--texto-secundario);
+}
+
+.conteudo-timeline p {
+  text-align: justify;
+}
+
+/* Footer */
+
+
 footer {
   display: flex;
   flex-direction: column;
