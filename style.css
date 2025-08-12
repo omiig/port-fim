@@ -5,11 +5,6 @@
   --texto-primario: #f8f8f2;
   --texto-secundario: #a6a28c;
   --realce-azul: #78dce8;
-  --realce-verde: #a9dc76;
-  --realce-laranja: #fc9867;
-  --realce-rosa: #ff6188;
-  --realce-roxo: #ab9df2;
-  --realce-amarelo: #ffd866;
   --cor-borda: #2a2a2a;
   --bg-barra-lateral: #0a0a0a;
 }
@@ -18,7 +13,7 @@
   position: fixed;
   top: 3%;
   left: 5%;
-  width: 35%;
+  width: 25%;
   height: 85%;
   background-color: var(--bg-barra-lateral);
   border: 2px solid var(--cor-borda);
@@ -139,11 +134,21 @@ header {
   width: 100%;
 }
 
+.nav-link.active::after {
+  width: 100%;  
+}
+
+.nav-link.active {
+  color: var(--realce-azul);
+  font-weight: bold;
+}
+
+
 #fixo-dir {
   position: absolute;
   top: 3%;
-  right: 10%;
-  width: 45%;
+  right: 5%;
+  width: 60%;
   height: 100%;
 }
 
@@ -175,7 +180,7 @@ body {
 .habilidade-card {
   background-color: var(--bg-realce);
   border: 1px solid var(--cor-borda);
-  width: 25%;
+  width: 19%;
   border-radius: 15px;
   padding: 2rem;
   text-align: center;
@@ -201,35 +206,18 @@ body {
   color: var(--realce-azul);
 }
 
-.barra-habilidade {
-  background-color: var(--bg-realce);
-  height: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-top: 1rem;
-  border-color: var(--cor-borda);
-  width: 100%;
-}
-
-.progresso-habilidade {
-  height: 100%;
-  background-color: var(--realce-azul);
-  border-radius: 5px;
-  border-color: var(--cor-borda);
-  transition: width 2s ease;
-  width: 0;
-}
-
 /* Seção de educação */
 
 .timeline {
   position: relative;
   padding: 20px 0;
   margin: 0 auto;
-  width: 80%;
+  width: 75%;
+  border-left: 2px solid var(--realce-azul);
 }
 
 .item-timeline {
+  position: relative;
   padding: 20px;
   background-color: var(--bg-realce);
   border: 1px solid var(--cor-borda);
@@ -238,8 +226,19 @@ body {
   transition: all 0.3s ease;
 }
 
+.item-timeline::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 20px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--realce-azul);
+  border-radius: 50%;
+}
+
 .item-timeline:hover {
-  transform: scale(1.06);
+  transform: scale(1.04);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -254,9 +253,145 @@ body {
   color: var(--texto-secundario);
 }
 
+.data-timeline {
+  font-weight: bold;
+  color: var(--realce-azul);
+  margin-bottom: 5px;
+}
+
 .conteudo-timeline p {
   text-align: justify;
 }
+
+/* Seção de experiencias */
+
+.experiencias-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.experiencia-card {
+  background-color: var(--bg-realce);
+  border: 1px solid var(--cor-borda);
+  width: 90%;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2%;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  color: var(--texto-primario);
+} 
+
+.experiencia-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.experiencia-card h3 {
+  font-size: 1.5rem;
+  color: var(--realce-azul);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.experiencia-card p {
+  font-size: 1rem;
+  color: var(--texto-secundario);
+  text-align: justify;
+}
+
+.experiencia-card .data-experiencia {
+  font-size: 0.9rem;
+  color: var(--texto-primario);
+  text-align: center;
+}
+
+
+/* Seção de projetos */
+
+
+/* Seção de contatos */
+
+.info-contato {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-realce);
+  border: 1px solid var(--cor-borda);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 35%;
+}
+
+.conteudo-contato {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.conteudo-contato h4 {
+  color: var(--realce-azul);
+}
+
+.conteudo-contato p {
+  font-size: 1rem;
+  color: var(--texto-secundario);
+}
+
+.form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-contato input,
+.form-contato textarea {
+  width: 100%;
+  padding: 17px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  background-color: var(--bg-realce);
+  color: var(--texto-primario);
+  font-size: 1rem;
+}
+
+.form-contato input:focus,
+.form-contato textarea:focus {
+  border-color: var(--realce-azul);
+  outline: none;
+} 
+
+.form-contato button {
+  width: 40%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--bg-realce);
+  color: var(--texto-primario);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.form-contato button:hover {
+  background-color: var(--realce-azul);
+  color: var(--bg-barra-lateral);
+}
+
+/* Responsividade */
+
+
+
+
+
 
 /* Footer */
 

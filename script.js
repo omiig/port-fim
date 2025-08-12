@@ -1,29 +1,22 @@
-const animacaoBarraHabilidade = () => {
-    const barraHabilidade = document.querySelectorAll('.progresso-habilidade');
-    
-    barraHabilidade.forEach(barra => {
-        const width = barra.getAttribute('data-width');
-        barra.setAttribute('width') = width;
-    });
-};  
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
 
-// Observer para animações ao scroll
-const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            
-            // Animar barras de habilidade quando a seção skills ficar visível
-            if (entry.target.id === 'habilidades') {
-                setTimeout(() => {
-                    animacaoBarraHabilidade();
-                }, 300);
-            }
-        }
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
     });
-}, observerOptions);
+  }, {
+    root: null,
+    rootMargin: '-40% 0px -40% 0px', // ajusta "zona" de ativação no meio da tela
+    threshold: 0
+  });
+
+  sections.forEach(section => observer.observe(section));
+});
+
