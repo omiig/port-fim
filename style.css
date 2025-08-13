@@ -9,11 +9,16 @@
   --bg-barra-lateral: #0a0a0a;
 }
 
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
 #fixo-esq {
   position: fixed;
   top: 3%;
   left: 5%;
-  width: 25%;
+  width: 24%;
   height: 85%;
   background-color: var(--bg-barra-lateral);
   border: 2px solid var(--cor-borda);
@@ -72,8 +77,8 @@ header {
 }
 
 .foto-perfil img {
-  width: 200px;
-  height: 200px;
+  width: 12.5rem;
+  height: 12.5rem;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -123,9 +128,9 @@ header {
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 0.125rem;
   background-color: var(--realce-azul);
-  bottom: -5px;
+  bottom: -0.313rem;
   left: 0;
   transition: width 0.3s ease;
 }
@@ -180,8 +185,8 @@ body {
 .habilidade-card {
   background-color: var(--bg-realce);
   border: 1px solid var(--cor-borda);
-  width: 19%;
-  border-radius: 15px;
+  width: 25%;
+  border-radius: 0.938rem;
   padding: 2rem;
   text-align: center;
   transition:all 0.3s ease;
@@ -190,7 +195,7 @@ body {
 
 .habilidade-card:hover {
   transform: scale(1.06);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 
@@ -221,31 +226,31 @@ body {
   padding: 20px;
   background-color: var(--bg-realce);
   border: 1px solid var(--cor-borda);
-  border-radius: 10px;
-  margin-bottom: 20px;
+  border-radius: 0.625rem;
+  margin-bottom: 1.25rem;
   transition: all 0.3s ease;
 }
 
 .item-timeline::before {
   content: '';
   position: absolute;
-  left: -8px;
-  top: 20px;
-  width: 16px;
-  height: 16px;
+  left: -0.5rem;
+  top: 1.25rem;
+  width: 1rem;
+  height: 1rem;
   background-color: var(--realce-azul);
   border-radius: 50%;
 }
 
 .item-timeline:hover {
   transform: scale(1.04);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .item-timeline h3 {
   font-size: 1.5rem;
   color: var(--realce-azul);
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .item-timeline p {
@@ -256,7 +261,7 @@ body {
 .data-timeline {
   font-weight: bold;
   color: var(--realce-azul);
-  margin-bottom: 5px;
+  margin-bottom: 0.313rem;
 }
 
 .conteudo-timeline p {
@@ -276,9 +281,10 @@ body {
 .experiencia-card {
   background-color: var(--bg-realce);
   border: 1px solid var(--cor-borda);
-  width: 90%;
-  border-radius: 15px;
+  width: 100%;
+  border-radius: 0.938rem;
   padding: 2rem;
+  left: 5%;
   margin-bottom: 2%;
   justify-content: center;
   align-items: center;
@@ -288,18 +294,30 @@ body {
 
 .experiencia-card:hover {
   transform: scale(1.04);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .experiencia-card h3 {
   font-size: 1.5rem;
   color: var(--realce-azul);
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+  text-align: center;
+}
+.experiencia-card h4 {
+  font-size: 1.2rem;
+  color: var(--texto-primario);
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
-.experiencia-card p {
+.periodo {
   font-size: 1rem;
+  color: var(--texto-secundario);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.experiencia-card li {
+  font-size: 1.2rem;
   color: var(--texto-secundario);
   text-align: justify;
 }
@@ -322,7 +340,7 @@ body {
   background-color: var(--bg-realce);
   border: 1px solid var(--cor-borda);
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   width: 35%;
 }
 
@@ -352,9 +370,9 @@ body {
 .form-contato input,
 .form-contato textarea {
   width: 100%;
-  padding: 17px;
+  padding: 1.063rem;
   border: 1px solid var(--cor-borda);
-  border-radius: 5px;
+  border-radius: 0.313rem;
   background-color: var(--bg-realce);
   color: var(--texto-primario);
   font-size: 1rem;
@@ -371,11 +389,11 @@ body {
   text-align: center;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 0.625rem;
   background-color: var(--bg-realce);
   color: var(--texto-primario);
   border: none;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease;
@@ -389,9 +407,279 @@ body {
 /* Responsividade */
 
 
+/* RESPONSIVIDADE */
 
+/* Tablets e Laptops pequenos */
+@media screen and (max-width: 1224px) {
+  /* Transformar barra lateral em navbar superior */
+  #fixo-esq {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--bg-barra-lateral);
+    border: none;
+    border-bottom: 2px solid var(--cor-borda);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    z-index: 1000;
+  }
 
+  header {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+  }
 
+  /* Esconder conteúdo do perfil principal */
+  .secao-lat {
+    display: none;
+  }
+
+  /* Menu horizontal */
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 0;
+    align-items: center;
+  }
+
+  /* Foto pequena no canto direito */
+  .navbar::after {
+    content: '';
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-image: url('/assets/foto_logo.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid var(--realce-azul);
+  }
+
+  /* Ajustar área principal */
+  #fixo-dir {
+    position: relative;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  /* Ajustar habilidades para 2 por linha */
+  .habilidades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .habilidade-card {
+    width: 100%;
+  }
+
+  /* Ajustar timeline */
+  .timeline {
+    width: 90%;
+  }
+
+  /* Ajustar contato */
+  .conteudo-contato {
+    flex-direction: column;
+  }
+
+  .info-contato {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .form-contato .submit-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Ajustar footer */
+  footer {
+    position: relative;
+    margin-top: 3rem;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+  /* Esconder menu normal e mostrar hamburguer */
+  .navbar ul {
+    display: none;
+  }
+
+  .menu-mobile {
+    display: flex;
+    position: absolute;
+    right: 80px;
+  }
+
+  /* Ajustar foto para não sobrepor hamburguer */
+  .navbar::after {
+    right: 130px;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Habilidades 2 por linha */
+  .habilidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .habilidade-card {
+    padding: 1.5rem;
+  }
+
+  /* Texto menor */
+  .secao-home .container p {
+    font-size: 1rem;
+  }
+
+  .item-timeline p,
+  .experiencia-card li {
+    font-size: 0.95rem;
+  }
+
+  /* Timeline mais estreita */
+  .timeline {
+    width: 100%;
+    padding-left: 1rem;
+  }
+
+  /* Cards mais compactos */
+  .experiencia-card,
+  .item-timeline {
+    padding: 1.5rem;
+  }
+
+  /* Footer responsivo */
+  footer .container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Celulares */
+@media screen and (max-width: 480px) {
+  /* Navbar mais compacta */
+  #fixo-esq {
+    height: 70px;
+    padding: 0 1rem;
+  }
+
+  .navbar::after {
+    right: 70px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .menu-mobile {
+    right: 20px;
+  }
+
+  /* Área principal */
+  #fixo-dir {
+    top: 70px;
+    padding: 1rem;
+  }
+
+  /* Habilidades em 1 coluna em telas muito pequenas */
+  .habilidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Texto ainda menor */
+  .secao-home .container p {
+    font-size: 0.9rem;
+  }
+
+  .item-timeline p,
+  .experiencia-card li {
+    font-size: 0.85rem;
+  }
+
+  /* Cards mais compactos */
+  .habilidade-card,
+  .experiencia-card,
+  .item-timeline {
+    padding: 1rem;
+  }
+
+  /* Timeline mais simples */
+  .item-timeline::before {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  /* Formulário mais compacto */
+  .form-contato input,
+  .form-contato textarea {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .form-contato button {
+    width: 60%;
+    font-size: 0.9rem;
+  }
+}
+
+/* Celulares muito pequenos */
+@media screen and (max-width: 320px) {
+  /* Habilidades 1 por linha */
+  .habilidades-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Menu hamburguer menor */
+  .menu-mobile span {
+    width: 20px;
+    height: 2px;
+  }
+
+  /* Foto ainda menor */
+  .navbar::after {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Textos menores */
+  .info-perfil h1 {
+    font-size: 1.5rem;
+  }
+
+  .habilidade-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .item-timeline h3 {
+    font-size: 1.3rem;
+  }
+
+  .experiencia-card h3 {
+    font-size: 1.3rem;
+  }
+}
 
 /* Footer */
 
@@ -406,7 +694,7 @@ footer {
   background-color: var(--bg-secundario);
   color: var(--texto-secundario);
   text-align: center;
-  padding: 5px;
+  padding: 0.313rem;
 }
 
 footer .container {
@@ -424,7 +712,7 @@ footer .container {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .footer-social a {
@@ -432,4 +720,3 @@ footer .container {
   text-decoration: none;
   font-size: 1.5rem;
 }
-
