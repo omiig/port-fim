@@ -19,7 +19,7 @@
   top: 3%;
   left: 5%;
   width: 24%;
-  height: 85%;
+  height: 89%;
   background-color: var(--bg-barra-lateral);
   border: 2px solid var(--cor-borda);
   border-radius: 10px;
@@ -328,9 +328,111 @@ body {
   text-align: center;
 }
 
-
 /* Seção de projetos */
 
+.projetos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.projeto-card {
+  background-color: var(--bg-realce);
+  border: 1px solid var(--cor-borda);
+  width: 45%;
+  border-radius: 0.938rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: var(--texto-primario);
+}
+
+.projeto-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.projeto-card h3 {
+  font-size: 1.5rem;
+  color: var(--realce-azul);
+  margin-bottom: 0.625rem;
+}
+
+.projeto-card p {
+  font-size: 1rem;
+  color: var(--texto-secundario);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.projeto-card a {
+  color: var(--realce-azul);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.projeto-card img {
+  width: 30%;
+  height: auto;
+  border-radius: 0.625rem;
+  margin-bottom: 1rem;
+}
+/* ===== Carrossel Projetos ===== */
+.carrossel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.carrossel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carrossel .projeto-card {
+  flex-shrink: 0;
+  min-width: 100%;     
+  box-sizing: border-box;
+}
+
+.carrossel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-barra-lateral);
+  color: var(--texto-primario);
+  border: 1px solid var(--cor-borda);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+#prev {
+  left: 10px;
+}
+
+#next {
+  right: 10px;
+}
+
+.carrossel-btn:hover {
+  background-color: var(--realce-azul);
+  color: var(--bg-barra-lateral);
+}
+
+.carrossel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
 
 /* Seção de contatos */
 
@@ -341,7 +443,7 @@ body {
   border: 1px solid var(--cor-borda);
   padding: 2rem;
   border-radius: 0.625rem;
-  width: 35%;
+  width: 37%;
 }
 
 .conteudo-contato {
@@ -385,7 +487,7 @@ body {
 } 
 
 .form-contato button {
-  width: 40%;
+  width: 100%;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -403,286 +505,6 @@ body {
   background-color: var(--realce-azul);
   color: var(--bg-barra-lateral);
 }
-
-/* Responsividade */
-
-
-/* RESPONSIVIDADE */
-
-/* Tablets e Laptops pequenos */
-@media screen and (max-width: 1224px) {
-  /* Transformar barra lateral em navbar superior */
-  #fixo-esq {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background-color: var(--bg-barra-lateral);
-    border: none;
-    border-bottom: 2px solid var(--cor-borda);
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    z-index: 1000;
-  }
-
-  header {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0;
-  }
-
-  /* Esconder conteúdo do perfil principal */
-  .secao-lat {
-    display: none;
-  }
-
-  /* Menu horizontal */
-  .navbar ul {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    margin: 0;
-    align-items: center;
-  }
-
-  /* Foto pequena no canto direito */
-  .navbar::after {
-    content: '';
-    position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-image: url('/assets/foto_logo.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 50%;
-    border: 2px solid var(--realce-azul);
-  }
-
-  /* Ajustar área principal */
-  #fixo-dir {
-    position: relative;
-    top: 80px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    padding: 2rem;
-  }
-
-  /* Ajustar habilidades para 2 por linha */
-  .habilidades-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .habilidade-card {
-    width: 100%;
-  }
-
-  /* Ajustar timeline */
-  .timeline {
-    width: 90%;
-  }
-
-  /* Ajustar contato */
-  .conteudo-contato {
-    flex-direction: column;
-  }
-
-  .info-contato {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  .form-contato .submit-btn {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.2rem;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* Ajustar footer */
-  footer {
-    position: relative;
-    margin-top: 3rem;
-  }
-}
-
-/* Tablets */
-@media screen and (max-width: 768px) {
-  /* Esconder menu normal e mostrar hamburguer */
-  .navbar ul {
-    display: none;
-  }
-
-  .menu-mobile {
-    display: flex;
-    position: absolute;
-    right: 80px;
-  }
-
-  /* Ajustar foto para não sobrepor hamburguer */
-  .navbar::after {
-    right: 130px;
-    width: 40px;
-    height: 40px;
-  }
-
-  /* Habilidades 2 por linha */
-  .habilidades-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .habilidade-card {
-    padding: 1.5rem;
-  }
-
-  /* Texto menor */
-  .secao-home .container p {
-    font-size: 1rem;
-  }
-
-  .item-timeline p,
-  .experiencia-card li {
-    font-size: 0.95rem;
-  }
-
-  /* Timeline mais estreita */
-  .timeline {
-    width: 100%;
-    padding-left: 1rem;
-  }
-
-  /* Cards mais compactos */
-  .experiencia-card,
-  .item-timeline {
-    padding: 1.5rem;
-  }
-
-  /* Footer responsivo */
-  footer .container {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
-/* Celulares */
-@media screen and (max-width: 480px) {
-  /* Navbar mais compacta */
-  #fixo-esq {
-    height: 70px;
-    padding: 0 1rem;
-  }
-
-  .navbar::after {
-    right: 70px;
-    width: 35px;
-    height: 35px;
-  }
-
-  .menu-mobile {
-    right: 20px;
-  }
-
-  /* Área principal */
-  #fixo-dir {
-    top: 70px;
-    padding: 1rem;
-  }
-
-  /* Habilidades em 1 coluna em telas muito pequenas */
-  .habilidades-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Texto ainda menor */
-  .secao-home .container p {
-    font-size: 0.9rem;
-  }
-
-  .item-timeline p,
-  .experiencia-card li {
-    font-size: 0.85rem;
-  }
-
-  /* Cards mais compactos */
-  .habilidade-card,
-  .experiencia-card,
-  .item-timeline {
-    padding: 1rem;
-  }
-
-  /* Timeline mais simples */
-  .item-timeline::before {
-    width: 0.8rem;
-    height: 0.8rem;
-  }
-
-  /* Formulário mais compacto */
-  .form-contato input,
-  .form-contato textarea {
-    padding: 0.8rem;
-    font-size: 0.9rem;
-  }
-
-  .form-contato button {
-    width: 60%;
-    font-size: 0.9rem;
-  }
-}
-
-/* Celulares muito pequenos */
-@media screen and (max-width: 320px) {
-  /* Habilidades 1 por linha */
-  .habilidades-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Menu hamburguer menor */
-  .menu-mobile span {
-    width: 20px;
-    height: 2px;
-  }
-
-  /* Foto ainda menor */
-  .navbar::after {
-    width: 30px;
-    height: 30px;
-  }
-
-  /* Textos menores */
-  .info-perfil h1 {
-    font-size: 1.5rem;
-  }
-
-  .habilidade-card h3 {
-    font-size: 1.1rem;
-  }
-
-  .item-timeline h3 {
-    font-size: 1.3rem;
-  }
-
-  .experiencia-card h3 {
-    font-size: 1.3rem;
-  }
-}
-
-/* Footer */
-
 
 footer {
   display: flex;
@@ -720,3 +542,265 @@ footer .container {
   text-decoration: none;
   font-size: 1.5rem;
 }
+
+/* Responsividade */
+
+@media screen and (max-width: 1224px) {
+  #fixo-esq {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--bg-barra-lateral);
+    border: none;
+    border-bottom: 2px solid var(--cor-borda);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    z-index: 1000;
+  }
+
+  header {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .secao-lat {
+    display: none;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 0;
+    align-items: center;
+  }
+
+  .navbar::after {
+    content: '';
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    filter: brightness(0.85) contrast(1.2);
+    background-image: url('/assets/logo-foto.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid var(--realce-azul);
+  }
+
+  #fixo-dir {
+    position: relative;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .habilidades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .habilidade-card {
+    width: 100%;
+  }
+
+  .timeline {
+    width: 90%;
+  }
+
+  .conteudo-contato {
+    flex-direction: column;
+  }
+
+  .info-contato {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .form-contato .submit-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer {
+    position: relative;
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar ul {
+    display: none;
+  }
+
+  .menu-mobile {  
+    flex-direction: column;
+    position: absolute;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .menu-mobile span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: var(--realce-azul);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar::after {
+    right: 130px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .habilidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .habilidade-card {
+    padding: 1.5rem;
+  }
+
+  .secao-home .container p {
+    font-size: 1rem;
+  }
+
+  .item-timeline p,
+  .experiencia-card li {
+    font-size: 0.95rem;
+  }
+
+  .timeline {
+    width: 100%;
+    padding-left: 1rem;
+  }
+
+  .experiencia-card,
+  .item-timeline {
+    padding: 1.5rem;
+  }
+
+  footer .container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #fixo-esq {
+    height: 70px;
+    padding: 0 1rem;
+  }
+
+  .navbar::after {
+    right: 70px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .menu-mobile {
+    right: 20px;
+  }
+
+  #fixo-dir {
+    top: 70px;
+    padding: 1rem;
+  }
+
+  .habilidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .secao-home .container p {
+    font-size: 0.9rem;
+  }
+
+  .item-timeline p,
+  .experiencia-card li {
+    font-size: 0.85rem;
+  }
+
+  .habilidade-card,
+  .experiencia-card,
+  .item-timeline {
+    padding: 1rem;
+  }
+
+  .item-timeline::before {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .form-contato input,
+  .form-contato textarea {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .form-contato button {
+    width: 60%;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .habilidades-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-mobile span {
+    width: 20px;
+    height: 2px;
+  }
+
+  .navbar::after {
+    width: 30px;
+    height: 30px;
+  }
+
+  .info-perfil h1 {
+    font-size: 1.5rem;
+  }
+
+  .habilidade-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .item-timeline h3 {
+    font-size: 1.3rem;
+  }
+
+  .experiencia-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .info-contato p {
+    font-size: 0.9rem;
+  }
+}
+

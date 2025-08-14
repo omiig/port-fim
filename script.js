@@ -1,26 +1,3 @@
-/* document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-        });
-      }
-    });
-  }, {
-    root: null,
-    rootMargin: '-40% 0px -40% 0px', // ajusta "zona" de ativação no meio da tela
-    threshold: 0
-  });
-
-  sections.forEach(section => observer.observe(section));
-});
-*/
-
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
@@ -117,3 +94,34 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// ===== Carrossel Projetos =====
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".carrossel-track");
+  const prevButton = document.querySelector("#prev");
+  const nextButton = document.querySelector("#next");
+  const slides = Array.from(track.children);
+  
+  let currentSlide = 0;
+
+  const updateButtons = () => {
+    prevButton.disabled = currentSlide === 0;
+    nextButton.disabled = currentSlide === slides.length - 1;
+  };
+
+  const moveToSlide = (index) => {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    currentSlide = index;
+    updateButtons();
+  };
+
+  prevButton.addEventListener("click", () => {
+    if (currentSlide > 0) moveToSlide(currentSlide - 1);
+  });
+
+  nextButton.addEventListener("click", () => {
+    if (currentSlide < slides.length - 1) moveToSlide(currentSlide + 1);
+  });
+
+  updateButtons();
+});
